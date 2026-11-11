@@ -266,25 +266,16 @@ cross6.addEventListener("click", function () {
 let undoButtons = document.querySelectorAll(".undoBtn");
 let lastAction = [null, null, null, null, null, null];
 undoButtons.forEach(function (btn, index) {
-
     btn.addEventListener("click", function () {
-
         if (lastAction[index] === "present" && present[index] > 0) {
-
             present[index]--;
-            document.getElementById(`s${index + 1}`).innerHTML = present[index];
-
             localStorage.setItem(currentUser + `_present${index + 1}`, present[index]);
 
         }
 
         else if (lastAction[index] === "absent" && absent[index] > 0) {
-
             absent[index]--;
-            document.getElementById(`j${index + 1}`).innerHTML = absent[index];
-
             localStorage.setItem(currentUser + `_absent${index + 1}`, absent[index]);
-
         }
 
         else {
@@ -292,14 +283,27 @@ undoButtons.forEach(function (btn, index) {
             return;
         }
 
-        let percentage = (present[index] / (present[index] + absent[index])) * 100;
+        // Synchronize individual variables with arrays
+        i1 = present[0];
+        i2 = present[1];
+        i3 = present[2];
+        i4 = present[3];
+        i5 = present[4];
+        i6 = present[5];
 
+        j1 = absent[0];
+        j2 = absent[1];
+        j3 = absent[2];
+        j4 = absent[3];
+        j5 = absent[4];
+        j6 = absent[5];
+
+        document.getElementById(`s${index + 1}`).innerHTML = present[index];
+        document.getElementById(`j${index + 1}`).innerHTML = absent[index];
+        let percentage = (present[index] / (present[index] + absent[index])) * 100;
         document.getElementById(`d${index + 1}`).innerHTML =
             (isNaN(percentage) ? 0 : percentage.toFixed(2)) + "%";
-
         lastAction[index] = null;
-
     });
 
 });
-
