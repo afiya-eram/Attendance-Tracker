@@ -183,11 +183,7 @@
             background-color: #8B6BA8;
         }
 
-        .undoBtn {
-           font-family: Arial, sans-serif !important;
-           font-size: 24px !important;
-           font-weight: normal !important;
-           line-height: 1 !important;
-          -webkit-text-size-adjust: none;
-           text-size-adjust: none;
-       }
+       .undoBtn {
+            background-color: #ab92c2;
+            font-size: 25px;
+        }
